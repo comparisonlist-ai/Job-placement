@@ -94,3 +94,178 @@
 </head>
 
 <body>
+        <!-- ==========================================
+         APP CONTAINER
+    =========================================== -->
+
+    <div id="app">
+
+        <!-- ======================================
+             APP MESSAGE
+        ======================================= -->
+
+        <div id="appMessage" class="app-message"></div>
+
+        <!-- ======================================
+             HOME / REGISTRATION SCREEN
+        ======================================= -->
+
+        <section id="registration" class="screen">
+
+            <!-- Sticky Header -->
+
+            <header class="top-header">
+
+                <div class="brand">
+
+                    <img
+                        src="images/logo.png"
+                        alt="Students Homework AI"
+                        class="logo">
+
+                    <div>
+
+                        <h1 class="brand-title">
+                            Students Homework AI
+                        </h1>
+
+                        <p class="brand-subtitle">
+                            Smart Homework Help
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Hero -->
+
+            <div class="hero">
+
+                <img
+                    src="images/logo.png"
+                    alt="Students Homework AI"
+                    class="hero-logo">
+
+                <h2>
+
+                    Homework Help for
+                    <br>
+
+                    CBSE Classes 6–10
+
+                </h2>
+
+                <p>
+
+                    Instant AI Answers • NCERT Friendly
+                    <br>
+
+                    7-Day FREE Trial
+
+                </p>
+
+            </div>
+
+            <!-- Registration Card -->
+
+            <div class="card registration-card">
+
+                <h3>
+
+                    Register & Start FREE Trial
+
+                </h3>
+
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Student Name"
+                    autocomplete="name">
+
+                <input
+                    id="mobile"
+                    type="tel"
+                    placeholder="10-digit Mobile Number"
+                    maxlength="10"
+                    inputmode="numeric">
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Email Address"
+                    autocomplete="email">
+
+                <button
+                    class="primary-btn"
+                    onclick="registerStudent()">
+
+                    🚀 Register & Start
+                    7-Day FREE Trial
+
+                </button>
+
+            </div>
+
+            <!-- Returning Student -->
+
+            <div class="login-card">
+
+                <p>
+
+                    Already Registered?
+
+                </p>
+
+                <button
+                    class="secondary-btn"
+                    onclick="initApp()">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+            <!-- Language -->
+
+            <div class="language-card">
+
+                <h3>
+
+                    Choose Language
+
+                </h3>
+
+                <div class="language-buttons">
+
+                    <button
+                        id="englishBtn"
+                        class="language-btn active">
+
+                        🇬🇧 English
+
+                    </button>
+
+                    <button
+                        id="hindiBtn"
+                        class="language-btn">
+
+                        🇮🇳 हिन्दी
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================
+             DASHBOARD
+        ======================================= -->
+
+        <section
+            id="dashboard"
+            class="screen hidden">
