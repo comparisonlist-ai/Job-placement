@@ -492,3 +492,431 @@ textarea{
    PART 2:
    Dashboard • Usage • Class Grid • Subject Grid
    ========================================================== */
+/* ==========================================================
+   Students Homework AI
+   Version 3.0
+   style.css
+   PART 2
+   Dashboard • Class • Subject • Homework • Question
+   ========================================================== */
+
+/* -----------------------------
+   DASHBOARD
+------------------------------ */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    margin-bottom:24px;
+
+}
+
+#welcomeMessage{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:var(--primary-dark);
+
+}
+
+.membership-badge{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.logout-btn{
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    background:var(--danger);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.logout-btn:hover{
+
+    opacity:.92;
+
+}
+
+/* -----------------------------
+   USAGE CARD
+------------------------------ */
+
+.usage-card{
+
+    background:#fff;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:20px;
+
+    margin-bottom:24px;
+
+}
+
+.usage-card h3{
+
+    margin-bottom:10px;
+
+    color:var(--primary);
+
+}
+
+#usageCounter{
+
+    margin-bottom:14px;
+
+    color:var(--text-light);
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    border-radius:999px;
+
+    background:#E5E7EB;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        var(--secondary),
+        var(--primary)
+    );
+
+    transition:width .4s ease;
+
+}
+
+/* -----------------------------
+   CLASS SECTION
+------------------------------ */
+
+.class-section{
+
+    margin-top:28px;
+
+}
+
+.class-section h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:var(--primary-dark);
+
+}
+
+/* -----------------------------
+   CLASS GRID
+------------------------------ */
+
+.class-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.class-grid button{
+
+    min-height:100px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:2px solid var(--border);
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    box-shadow:var(--shadow);
+
+    padding:18px 10px;
+
+}
+
+.class-grid button:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-3px);
+
+}
+
+.class-grid button:active{
+
+    transform:scale(.98);
+
+}
+
+/* Last button spans full width */
+
+.class-grid button:last-child{
+
+    grid-column:1 / -1;
+
+}
+
+/* -----------------------------
+   BACK BUTTON
+------------------------------ */
+
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 18px;
+
+    margin-bottom:20px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* -----------------------------
+   SUBJECT TITLE
+------------------------------ */
+
+#selectedClassTitle,
+#selectedSubjectTitle,
+#questionScreenTitle{
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--primary-dark);
+
+    margin-bottom:24px;
+
+}
+
+/* -----------------------------
+   SUBJECT GRID
+------------------------------ */
+
+.subject-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:14px;
+
+}
+
+.subject-grid button{
+
+    width:100%;
+
+    min-height:64px;
+
+    border-radius:16px;
+
+    background:#fff;
+
+    border:2px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    text-align:left;
+
+    padding:18px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.subject-grid button:hover{
+
+    border-color:var(--primary);
+
+    transform:translateX(3px);
+
+}
+
+/* -----------------------------
+   ACTION GRID
+------------------------------ */
+
+.action-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.action-grid button{
+
+    min-height:110px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:2px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    padding:16px;
+
+}
+
+.action-grid button:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-3px);
+
+}
+
+/* -----------------------------
+   QUESTION CARD
+------------------------------ */
+
+.question-card{
+
+    background:#fff;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:20px;
+
+}
+
+.question-card textarea{
+
+    width:100%;
+
+    min-height:180px;
+
+    resize:vertical;
+
+    padding:16px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+}
+
+.question-card textarea:focus{
+
+    border-color:var(--primary);
+
+}
+
+/* -----------------------------
+   QUESTION ACTIONS
+------------------------------ */
+
+.question-actions{
+
+    display:flex;
+
+    gap:14px;
+
+    margin-top:18px;
+
+}
+
+.question-actions button{
+
+    flex:1;
+
+}
+
+/* ==========================================================
+   END OF PART 2
+
+   PART 3:
+   Loading • Answer • Footer • Responsive • Utilities
+   ========================================================== */
