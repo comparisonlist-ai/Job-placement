@@ -795,3 +795,325 @@ if (questionInput) {
 // =====================================================
 // END OF PART 2
 // =====================================================
+// =====================================================
+// Students Homework AI
+// script.js Version 3.0
+// PART 3
+// AI Integration • Answer Display • Copy • Share
+// =====================================================
+
+// -----------------------------
+// ASK AI
+// -----------------------------
+
+async function askAI() {
+
+    if (askingAI) {
+
+        showMessage("Please wait...");
+
+        return;
+
+    }
+
+    const questionBox =
+        document.getElementById("questionInput");
+
+    if (!questionBox) return;
+
+    const question =
+        questionBox.value.trim();
+
+    if (question === "") {
+
+        showMessage("Please enter your question.");
+
+        questionBox.focus();
+
+        return;
+
+    }
+
+    askingAI = true;
+
+    hideAllScreens();
+
+    loadingScreen.classList.remove("hidden");
+
+    try {
+
+        const response = await fetch(API_URL, {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                className: currentClass,
+
+                subject: currentSubject,
+
+                language: currentLanguage,
+
+                question: question
+
+            })
+
+        });
+
+        if (!response.ok) {
+
+            throw new Error("Server Error");
+
+        }
+
+        const data =
+            await response.json();
+
+        let answer = "";
+
+        if (typeof data === "string") {
+
+            answer = data;
+
+        }
+
+        else if (data.answer) {
+
+            answer = data.answer;
+
+        }
+
+        else if (data.text) {
+
+            answer = data.text;
+
+        }
+
+        else if (data.result) {
+
+            answer = data.result;
+
+        }
+
+        else if (data.message) {
+
+            answer = data.message;
+
+        }
+
+        else {
+
+            answer =
+                "Sorry, no answer was received.";
+
+        }
+
+        displayAnswer(answer);
+
+        questionCount++;
+
+        updateUsage();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        hideAllScreens();
+
+        answerScreen.classList.remove("hidden");
+
+        document
+            .getElementById("answerContainer")
+            .innerHTML =
+
+            "<h2>❌ Unable to Get Answer</h2>" +
+
+            "<p>Please check your internet connection and try again.</p>";
+
+    }
+
+    finally {
+
+        askingAI = false;
+
+    }
+
+}
+
+// -----------------------------
+// DISPLAY ANSWER
+// -----------------------------
+
+function displayAnswer(answer) {
+
+    hideAllScreens();
+
+    answerScreen.classList.remove("hidden");
+
+    const container =
+        document.getElementById("answerContainer");
+
+    if (!container) return;
+
+    container.innerHTML =
+        formatAnswer(answer);
+
+}
+
+// -----------------------------
+// FORMAT ANSWER
+// -----------------------------
+
+function formatAnswer(text) {
+
+    if (!text) return "";
+
+    let html = text;
+
+    html = html
+
+        .replace(/\r\n/g, "\n")
+
+        .replace(/\n\n/g, "<br><br>")
+
+        .replace(/\n/g, "<br>")
+
+        .replace(/\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>")
+
+        .replace(/\*(.*?)\*/g,
+            "<em>$1</em>")
+
+        .replace(/### (.*?)<br>/g,
+            "<h3>$1</h3>")
+
+        .replace(/## (.*?)<br>/g,
+            "<h2>$1</h2>")
+
+        .replace(/# (.*?)<br>/g,
+            "<h1>$1</h1>")
+
+        .replace(/^- (.*?)(<br>|$)/gm,
+            "• $1<br>");
+
+    return html;
+
+}
+
+// -----------------------------
+// COPY ANSWER
+// -----------------------------
+
+async function copyAnswer() {
+
+    const container =
+        document.getElementById("answerContainer");
+
+    if (!container) return;
+
+    try {
+
+        await navigator.clipboard.writeText(
+
+            container.innerText
+
+        );
+
+        showMessage("Answer copied.");
+
+    }
+
+    catch {
+
+        showMessage("Copy failed.");
+
+    }
+
+}
+
+// -----------------------------
+// SHARE ANSWER
+// -----------------------------
+
+async function shareAnswer() {
+
+    const container =
+        document.getElementById("answerContainer");
+
+    if (!container) return;
+
+    const text =
+        container.innerText;
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share({
+
+                title:
+                "Students Homework AI",
+
+                text: text
+
+            });
+
+        }
+
+        catch (e) {
+
+            console.log(e);
+
+        }
+
+    }
+
+    else {
+
+        copyAnswer();
+
+    }
+
+}
+
+// -----------------------------
+// PRINT ANSWER
+// -----------------------------
+
+function printAnswer() {
+
+    const container =
+        document.getElementById("answerContainer");
+
+    if (!container) return;
+
+    const win =
+        window.open("", "_blank");
+
+    win.document.write(
+
+        "<html><head><title>Answer</title></head><body>" +
+
+        container.innerHTML +
+
+        "</body></html>"
+
+    );
+
+    win.document.close();
+
+    win.print();
+
+}
+
+// =====================================================
+// END OF PART 3
+// =====================================================
