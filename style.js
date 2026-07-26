@@ -920,3 +920,501 @@ textarea{
    PART 3:
    Loading • Answer • Footer • Responsive • Utilities
    ========================================================== */
+/* ==========================================================
+   Students Homework AI
+   Version 3.0
+   style.css
+   PART 3
+   Loading • Answer • Referral • Footer • Responsive
+   ========================================================== */
+
+/* -----------------------------
+   LOADING SCREEN
+------------------------------ */
+
+.loading-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:70vh;
+
+    text-align:center;
+
+    padding:24px;
+
+}
+
+.loader{
+
+    width:70px;
+
+    height:70px;
+
+    border:6px solid #E5E7EB;
+
+    border-top:6px solid var(--primary);
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin-bottom:24px;
+
+}
+
+.loading-card h2{
+
+    color:var(--primary-dark);
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+.loading-card p{
+
+    color:var(--text-light);
+
+    font-size:16px;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* -----------------------------
+   ANSWER SCREEN
+------------------------------ */
+
+.answer-card{
+
+    background:#fff;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+}
+
+.answer-card h2{
+
+    color:var(--primary-dark);
+
+    margin-bottom:18px;
+
+    text-align:center;
+
+}
+
+#answerContainer{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:var(--text);
+
+    word-break:break-word;
+
+}
+
+#answerContainer h1,
+#answerContainer h2,
+#answerContainer h3{
+
+    color:var(--primary-dark);
+
+    margin:18px 0 10px;
+
+}
+
+#answerContainer strong{
+
+    color:var(--primary-dark);
+
+}
+
+#answerContainer ul,
+#answerContainer ol{
+
+    padding-left:24px;
+
+    margin:14px 0;
+
+}
+
+#answerContainer li{
+
+    margin-bottom:8px;
+
+}
+
+#answerContainer table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:16px 0;
+
+    overflow-x:auto;
+
+    display:block;
+
+}
+
+#answerContainer th,
+#answerContainer td{
+
+    border:1px solid var(--border);
+
+    padding:10px;
+
+}
+
+#answerContainer th{
+
+    background:#F1F5F9;
+
+}
+
+/* -----------------------------
+   ANSWER BUTTONS
+------------------------------ */
+
+.answer-buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.answer-buttons button{
+
+    min-height:52px;
+
+}
+
+/* -----------------------------
+   REFERRAL
+------------------------------ */
+
+#referralSection .card{
+
+    text-align:center;
+
+}
+
+#referralSection h2{
+
+    color:var(--primary);
+
+    margin-bottom:14px;
+
+}
+
+#referralSection p{
+
+    color:var(--text-light);
+
+    margin-bottom:20px;
+
+}
+
+/* -----------------------------
+   FOOTER
+------------------------------ */
+
+.app-footer{
+
+    background:var(--primary-dark);
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    margin-top:40px;
+
+}
+
+.app-footer strong{
+
+    font-size:20px;
+
+}
+
+.app-footer p{
+
+    margin:8px 0;
+
+    opacity:.96;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:20px 0;
+
+}
+
+.footer-links button{
+
+    background:rgba(255,255,255,.12);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:10px;
+
+    padding:10px 16px;
+
+    font-size:14px;
+
+}
+
+.footer-links button:hover{
+
+    background:rgba(255,255,255,.20);
+
+}
+
+/* -----------------------------
+   MOBILE RESPONSIVE
+------------------------------ */
+
+@media (max-width:480px){
+
+    .brand-title{
+
+        font-size:18px;
+
+    }
+
+    .hero h2{
+
+        font-size:24px;
+
+    }
+
+    .hero-logo{
+
+        width:90px;
+
+    }
+
+    .registration-card h3{
+
+        font-size:20px;
+
+    }
+
+    .dashboard-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .logout-btn{
+
+        width:100%;
+
+    }
+
+    .class-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .action-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .answer-buttons{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .question-actions{
+
+        flex-direction:column;
+
+    }
+
+    .language-buttons{
+
+        flex-direction:column;
+
+    }
+
+}
+
+/* -----------------------------
+   TABLET
+------------------------------ */
+
+@media (min-width:768px){
+
+    #app{
+
+        max-width:700px;
+
+    }
+
+    .hero h2{
+
+        font-size:36px;
+
+    }
+
+    .class-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .class-grid button:last-child{
+
+        grid-column:auto;
+
+    }
+
+    .subject-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .action-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* -----------------------------
+   UTILITIES
+------------------------------ */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-10{
+
+    margin-top:10px;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.shadow{
+
+    box-shadow:var(--shadow);
+
+}
+
+.rounded{
+
+    border-radius:var(--radius);
+
+}
+
+/* -----------------------------
+   SCROLLBAR
+------------------------------ */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EDF2F7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ==========================================================
+   END OF STYLE.CSS
+   Students Homework AI
+   Version 3.0
+   Production Ready
+   ========================================================== */
