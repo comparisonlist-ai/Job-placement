@@ -383,6 +383,7 @@ function updateUsage() {
             percent + "%";
 
     }
+    
 
 }
 
@@ -412,4 +413,385 @@ function showMessage(text) {
 
 // =====================================================
 // END OF PART 1
+// =====================================================
+// =====================================================
+// Students Homework AI
+// script.js Version 3.0
+// PART 2
+// Navigation • Subject • Homework • Question Utilities
+// =====================================================
+
+// -----------------------------
+// CLASS SELECTION
+// -----------------------------
+
+function showSubjects(className) {
+
+    currentClass = className;
+
+    hideAllScreens();
+
+    subjectScreen.classList.remove("hidden");
+
+    const title =
+        document.getElementById(
+            "selectedClassTitle"
+        );
+
+    if (title) {
+
+        title.textContent =
+            "📚 " + className;
+
+    }
+
+}
+
+// -----------------------------
+// SUBJECT SELECTION
+// -----------------------------
+
+function openHomework(subject) {
+
+    currentSubject = subject;
+
+    hideAllScreens();
+
+    homeworkScreen.classList.remove("hidden");
+
+    const title =
+        document.getElementById(
+            "selectedSubjectTitle"
+        );
+
+    if (title) {
+
+        title.textContent =
+            currentClass +
+            " • " +
+            subject;
+
+    }
+
+}
+
+// -----------------------------
+// QUESTION SCREEN
+// -----------------------------
+
+function showQuestionScreen() {
+
+    hideAllScreens();
+
+    questionScreen.classList.remove("hidden");
+
+    const title =
+        document.getElementById(
+            "questionScreenTitle"
+        );
+
+    if (title) {
+
+        title.textContent =
+            currentClass +
+            " • " +
+            currentSubject;
+
+    }
+
+    const input =
+        document.getElementById(
+            "questionInput"
+        );
+
+    if (input) {
+
+        input.focus();
+
+    }
+
+}
+
+// -----------------------------
+// BACK NAVIGATION
+// -----------------------------
+
+function goBackToSubjects() {
+
+    hideAllScreens();
+
+    subjectScreen.classList.remove("hidden");
+
+}
+
+function goBackToHomework() {
+
+    hideAllScreens();
+
+    homeworkScreen.classList.remove("hidden");
+
+}
+
+function askAnotherQuestion() {
+
+    clearQuestion();
+
+    showQuestionScreen();
+
+}
+
+// -----------------------------
+// QUESTION UTILITIES
+// -----------------------------
+
+function clearQuestion() {
+
+    const input =
+        document.getElementById(
+            "questionInput"
+        );
+
+    if (!input)
+        return;
+
+    input.value = "";
+
+    input.focus();
+
+}
+
+// -----------------------------
+// OCR
+// -----------------------------
+
+function startOCR() {
+
+    const picker =
+        document.getElementById(
+            "ocrFileInput"
+        );
+
+    if (!picker) {
+
+        showMessage(
+            "OCR is unavailable."
+        );
+
+        return;
+
+    }
+
+    picker.click();
+
+}
+
+// -----------------------------
+// OCR FILE
+// -----------------------------
+
+const ocrInput =
+    document.getElementById(
+        "ocrFileInput"
+    );
+
+if (ocrInput) {
+
+    ocrInput.addEventListener(
+        "change",
+        function () {
+
+            if (!this.files.length)
+                return;
+
+            showMessage(
+                "OCR feature will be enabled in the next update."
+            );
+
+            this.value = "";
+
+        }
+    );
+
+}
+
+// -----------------------------
+// IMAGE FILE
+// -----------------------------
+
+const imageInput =
+    document.getElementById(
+        "imageInput"
+    );
+
+if (imageInput) {
+
+    imageInput.addEventListener(
+        "change",
+        function () {
+
+            if (!this.files.length)
+                return;
+
+            showMessage(
+                "Image selected successfully."
+            );
+
+            this.value = "";
+
+        }
+    );
+
+}
+
+// -----------------------------
+// VOICE INPUT
+// -----------------------------
+
+function startVoiceInput() {
+
+    if (
+        !(
+            "webkitSpeechRecognition" in window
+        ) &&
+        !(
+            "SpeechRecognition" in window
+        )
+    ) {
+
+        showMessage(
+            "Voice input is not supported on this device."
+        );
+
+        return;
+
+    }
+
+    showMessage(
+        "Voice input feature coming soon."
+    );
+
+}
+
+// -----------------------------
+// NCERT
+// -----------------------------
+
+function openNCERTSolutions() {
+
+    showMessage(
+        "NCERT Solutions will be available shortly."
+    );
+
+}
+
+// -----------------------------
+// REFERRAL
+// -----------------------------
+
+function showReferralProgram() {
+
+    const section =
+        document.getElementById(
+            "referralSection"
+        );
+
+    if (section) {
+
+        section.classList.remove(
+            "hidden"
+        );
+
+    }
+
+}
+
+function closeReferralSection() {
+
+    const section =
+        document.getElementById(
+            "referralSection"
+        );
+
+    if (section) {
+
+        section.classList.add(
+            "hidden"
+        );
+
+    }
+
+}
+
+// -----------------------------
+// PREMIUM
+// -----------------------------
+
+function showSubscriptionPlans() {
+
+    showMessage(
+        "Premium plans will be available soon."
+    );
+
+}
+
+// -----------------------------
+// FOOTER
+// -----------------------------
+
+function showPrivacyPolicy() {
+
+    alert(
+        "Privacy Policy will be published before launch."
+    );
+
+}
+
+function showTerms() {
+
+    alert(
+        "Terms & Conditions will be published before launch."
+    );
+
+}
+
+function contactUs() {
+
+    window.location.href =
+        "mailto:support@studentshomeworkai.in";
+
+}
+
+// -----------------------------
+// ENTER KEY SUPPORT
+// -----------------------------
+
+const questionInput =
+    document.getElementById(
+        "questionInput"
+    );
+
+if (questionInput) {
+
+    questionInput.addEventListener(
+        "keydown",
+        function (e) {
+
+            if (
+                e.key === "Enter" &&
+                !e.shiftKey
+            ) {
+
+                e.preventDefault();
+
+                askAI();
+
+            }
+
+        }
+    );
+
+}
+
+// =====================================================
+// END OF PART 2
 // =====================================================
