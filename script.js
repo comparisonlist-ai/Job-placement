@@ -1117,3 +1117,324 @@ function printAnswer() {
 // =====================================================
 // END OF PART 3
 // =====================================================
+// =====================================================
+// Students Homework AI
+// script.js Version 3.0
+// PART 4
+// Session • Logout • Network • Startup
+// =====================================================
+
+// -----------------------------
+// LOGOUT
+// -----------------------------
+
+function logoutStudent() {
+
+    if (!confirm("Do you want to logout?")) {
+
+        return;
+
+    }
+
+    localStorage.removeItem(
+        "cbseStudent"
+    );
+
+    currentStudent = null;
+
+    currentClass = "";
+
+    currentSubject = "";
+
+    questionCount = 0;
+
+    goHome();
+
+    showMessage(
+        "Logged out successfully."
+    );
+
+}
+
+// -----------------------------
+// SAVE SESSION
+// -----------------------------
+
+function saveSession() {
+
+    if (!currentStudent)
+        return;
+
+    localStorage.setItem(
+
+        "cbseStudent",
+
+        JSON.stringify(currentStudent)
+
+    );
+
+}
+
+// -----------------------------
+// LOAD SESSION
+// -----------------------------
+
+function loadSession() {
+
+    const data =
+
+        localStorage.getItem(
+            "cbseStudent"
+        );
+
+    if (!data) {
+
+        return false;
+
+    }
+
+    try {
+
+        currentStudent =
+            JSON.parse(data);
+
+        return true;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        localStorage.removeItem(
+            "cbseStudent"
+        );
+
+        return false;
+
+    }
+
+}
+
+// -----------------------------
+// RESET USAGE
+// -----------------------------
+
+function resetUsage() {
+
+    questionCount = 0;
+
+    updateUsage();
+
+}
+
+// -----------------------------
+// NETWORK STATUS
+// -----------------------------
+
+window.addEventListener(
+    "offline",
+    () => {
+
+        showMessage(
+            "❌ No Internet Connection"
+        );
+
+    }
+);
+
+window.addEventListener(
+    "online",
+    () => {
+
+        showMessage(
+            "✅ Internet Connected"
+        );
+
+    }
+);
+
+// -----------------------------
+// ESC KEY
+// -----------------------------
+
+document.addEventListener(
+    "keydown",
+    function (e) {
+
+        if (e.key === "Escape") {
+
+            if (
+
+                !questionScreen.classList.contains(
+                    "hidden"
+                )
+
+            ) {
+
+                goBackToHomework();
+
+            }
+
+        }
+
+    }
+);
+
+// -----------------------------
+// PAGE VISIBILITY
+// -----------------------------
+
+document.addEventListener(
+
+    "visibilitychange",
+
+    function () {
+
+        if (
+            document.hidden
+        ) {
+
+            saveSession();
+
+        }
+
+    }
+
+);
+
+// -----------------------------
+// BEFORE UNLOAD
+// -----------------------------
+
+window.addEventListener(
+
+    "beforeunload",
+
+    function () {
+
+        saveSession();
+
+    }
+
+);
+
+// -----------------------------
+// WINDOW LOAD
+// -----------------------------
+
+window.addEventListener(
+
+    "load",
+
+    function () {
+
+        loadSession();
+
+        initializeLanguageButtons();
+
+        if (currentStudent) {
+
+            showDashboard();
+
+        }
+
+        else {
+
+            goHome();
+
+        }
+
+    }
+
+);
+
+// -----------------------------
+// GLOBAL ERROR HANDLER
+// -----------------------------
+
+window.addEventListener(
+
+    "error",
+
+    function (event) {
+
+        console.error(
+
+            "Application Error:",
+
+            event.error
+
+        );
+
+    }
+
+);
+
+// -----------------------------
+// PROMISE ERROR HANDLER
+// -----------------------------
+
+window.addEventListener(
+
+    "unhandledrejection",
+
+    function (event) {
+
+        console.error(
+
+            "Unhandled Promise:",
+
+            event.reason
+
+        );
+
+    }
+
+);
+
+// -----------------------------
+// VERSION INFO
+// -----------------------------
+
+console.log(
+
+    "===================================="
+
+);
+
+console.log(
+
+    "Students Homework AI"
+
+);
+
+console.log(
+
+    "Version 3.0"
+
+);
+
+console.log(
+
+    "Production Ready"
+
+);
+
+console.log(
+
+    "studentshomeworkai.in"
+
+);
+
+console.log(
+
+    "===================================="
+
+);
+
+// =====================================================
+// END OF SCRIPT.JS
+// Version 3.0
+// Production Build
+// =====================================================
